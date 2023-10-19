@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+body, html {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('Barcelona.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  overflow: hidden;
+}
+
+.container {
+  display: flex;       /* Habilita flexbox */
+  flex-direction: column;  /* Alinea los elementos verticalmente */
+  align-items: center;    /* Centra los elementos horizontalmente */
+  
+  max-width: 300px; 
+  width: 90%;  
+  margin: 0 auto;   /* Centra el contenedor en sí mismo en la pantalla */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  flex: 1;
+  overflow: visible;
+}
+
+
+
+.input-section h2, h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.input-field, select, .result, .superficie {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.submit {
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s;
+  display: flex;        /* Cambiado de block a flex */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center;     /* Centra el contenido verticalmente */
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40%;
+}
+
+.submit:hover {
+  background-color: #45a049;
+}
+
+.switch-field {
+  display: flex;
+  margin-bottom: 36px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.switch-field input {
+  display: none;
+}
+
+.switch-field label {
+  background-color: #e4e4e4;
+  color: #666;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 12px 20px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+.switch-field input:checked + label {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.switch-field label:hover {
+  cursor: pointer;
+}
+/* Cambiar la disposición de los selectores a vertical en pantallas estrechas */
+@media (max-width: 600px) {
+  .switch-field label {
+    width: 100%;  /* Asegurar que las etiquetas ocupen todo el ancho */
+    margin: 5px 0;  /* Ajustar el margen para la disposición vertical */
+  }
+}
+
+.result{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40%;  /* Puede ajustar este valor según tus necesidades */
+}
+
+footer {
+  background: rgba(0,0,0,0.1); /* Solo para visualización, puedes ajustar a tus preferencias */
+  padding: 10px;
+  text-align: center;
+}

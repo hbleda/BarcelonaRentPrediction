@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcelona Home Price Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="img"></div>
+    <div class="container">
+        <form class="form" id="main-form">
+            <section class="input-section" id="distrito-section">
+                <h2>Distrito</h2>
+                <select id="uiDistritos" class="input-field">
+                    <option value="" disabled="disabled" selected="selected">Elige un Distrito</option>
+                </select>
+            </section>
+            <section class="input-section" id="barrio-section">
+                <h2>Barrio</h2>
+                <select id="uiBarrios" class="input-field">
+                    <option value="" disabled="disabled" selected="selected">Elige un barrio</option>
+                </select>
+            </section>
+            <section class="input-section" id="superficie-section">
+                <h2>Superficie</h2>
+                <input class="input-field superficie" type="text" id="uiSuperficie" name="m2" value="">
+            </section>
+            <section class="input-section" id="habitaciones-section">
+                <h2>Habitaciones</h2>
+                <div class="switch-field">
+                <input type="radio" id="radio-rooms-0" name="uiHabitaciones" value="0"/>
+			    <label for="radio-rooms-0">0</label>
+			    <input type="radio" id="radio-rooms-1" name="uiHabitaciones" value="1"checked/>
+			    <label for="radio-rooms-1">1</label>
+			    <input type="radio" id="radio-rooms-2" name="uiHabitaciones" value="2"/>
+			    <label for="radio-rooms-2">2</label>
+			    <input type="radio" id="radio-rooms-3" name="uiHabitaciones" value="3"/>
+			    <label for="radio-rooms-3">3</label>
+			    <input type="radio" id="radio-rooms-4" name="uiHabitaciones" value="4"/>
+			    <label for="radio-rooms-4">4</label>
+			    <input type="radio" id="radio-rooms-5" name="uiHabitaciones" value="5"/>
+			    <label for="radio-radio-rooms-5">5</label>
+                </div>
+            </section>
+            <section class="input-section" id="baños-section">
+                <h2>Baños</h2>
+                <div class="switch-field">
+                    <input type="radio" id="radio-bath-0" name="uiBanyos" value="0"/>
+				<label for="radio-bath-0">0</label>
+				<input type="radio" id="radio-bath-1" name="uiBanyos" value="1"checked/>
+				<label for="radio-bath-1">1</label>
+				<input type="radio" id="radio-bath-2" name="uiBanyos" value="2" />
+				<label for="radio-bath-2">2</label>
+				<input type="radio" id="radio-bath-3" name="uiBanyos" value="3"/>
+				<label for="radio-bath-3">3</label>
+				<input type="radio" id="radio-bath-4" name="uiBanyos" value="4"/>
+				<label for="radio-bath-4">4</label>
+				<input type="radio" id="radio-bath-5" name="uiBanyos" value="5"/>
+				<label for="radio-bath-5">5</label>
+                </div>
+            </section>
+        </form>
+        <div class="result-container">
+            <button class="submit" onclick="onClickedEstimatePrice()" type="button">
+                <h2>Precio Alquiler Estimado</h2>
+            </button>
+            <div id="uiEstimatedPrice" class="result"></div>
+        </div>
+    </div>
+    <footer>
+        <p><h3>Copyright © 2023 Barcelona Rent Predict</h3></p>
+    </footer>
+</body>
+</html>

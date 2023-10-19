@@ -1,0 +1,24 @@
+ssh -i "C:\Users\USER\.ssh\BarcelonaRentPredict.pem" ec2-13-51-85-154.eu-north-1.compute.amazonaws.com
+server {
+    listen 80;
+        server_name _;
+        root /home/ubuntu/BarcelonaRentPredict/client;
+        index app.html;
+        location /api/ {
+             rewrite ^/api(.*) $1 break;
+             proxy_pass http://127.0.0.1:5000;
+        }
+}
+sudo ln -v -s /etc/nginx/sites-available/BarcelonaRentPredict.conf inside /etc/nginx/sites-enabled
+
+
+python3 /home/ubuntu/Barcelona_Alquiler/server/server.py
+
+sudo chown -R ubuntu:ubuntu /home/ubuntu/BarcelonaRentPredict/client
+sudo chmod -R 755 /home/ubuntu/BarcelonaRentPredict/client
+
+sudo cp -r /home/ubuntu/Barcelona_Alquiler/client/* /var/www/html/
+
+
+sudo ln -s /etc/nginx/sites-available/barcelona.conf  /etc/nginx/sites-enabled/
+ssh -i "C:\Users\USER\.ssh\BarcelonaRentPredict.pem" ubuntu@ec2-13-51-85-154.eu-north-1.compute.amazonaws.com
