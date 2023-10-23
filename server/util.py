@@ -6,7 +6,7 @@ import os
 
 CURRENT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 FILE_PATH_COLUMNS = os.path.join(CURRENT_DIRECTORY, "artifacts", "columns.json")
-FILE_PATH_MODEL = os.path.join(CURRENT_DIRECTORY, "artifacts", "barcelona_home_prices_model.pickle")
+FILE_PATH_MODEL = os.path.join(CURRENT_DIRECTORY, "artifacts", "barcelona_rent_predict_model.pickle")
 
 __barrios = None
 __distritos = None

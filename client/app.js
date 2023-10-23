@@ -13,19 +13,20 @@ var distritoBarrioMapa = {
 
 function getBanyosValue() {
   var uiBanyos = document.getElementsByName("uiBanyos");
-  for(var i in uiBanyos) {
+  for(var i = 0; i < uiBanyos.length; i++) {
     if(uiBanyos[i].checked) {
-        return parseInt(i)+1;
+        return parseInt(uiBanyos[i].value);
     }
   }
   return -1; // Invalid Value
 }
 
+
 function getHabitacionesValue() {
   var uiHabitaciones = document.getElementsByName("uiHabitaciones");
-  for(var i in uiHabitaciones) {
+  for(var i = 0; i < uiHabitaciones.length; i++) {
     if(uiHabitaciones[i].checked) {
-        return parseInt(i)+1;
+      return parseInt(uiHabitaciones[i].value);
     }
   }
   return -1; // Invalid Value
@@ -35,9 +36,9 @@ function onClickedEstimatePrice() {
   console.log("Estimate rent price button clicked");
   var distritos = document.getElementById("uiDistritos");
   var barrios = document.getElementById("uiBarrios");
-  var superficie = document.getElementById("uiSuperficie");
+  var superficie = parseInt(document.getElementById("uiSuperficie").value);
+  var habitaciones = getHabitacionesValue(); 
   var banyos = getBanyosValue();
-  var habitaciones = getHabitacionesValue();  
   var estPrice = document.getElementById("uiEstimatedPrice");
 
   var url = "http://127.0.0.1:5000/predict_rent_price"; //Use this if you are NOT using nginx
@@ -46,7 +47,7 @@ function onClickedEstimatePrice() {
   $.post(url, {
       distritos: distritos.value,
       barrios: barrios.value,
-      superficie: parseFloat(superficie.value),
+      superficie: superficie,
       habitaciones: habitaciones,
       banyos: banyos
       
