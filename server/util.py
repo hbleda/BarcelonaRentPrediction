@@ -34,7 +34,7 @@ def get_predict_rent_price(distritos, barrios, superficie, habitaciones, banyos)
     if loc_index_barrio >= 0:
         x[loc_index_barrio] = 1
 
-    return round(__model.predict([x])[0],0)
+    return np.ceil(__model.predict([x])[0])
 
 
 
