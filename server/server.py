@@ -30,12 +30,13 @@ def predict_rent_price():
     distritos = request.form.get('distritos')
     barrios = request.form.get('barrios')
     superficie = int(request.form.get('superficie'))
-    banyos = int(request.form.get('banyos'))
     habitaciones = int(request.form.get('habitaciones'))
+    banyos = int(request.form.get('banyos'))
+    
     
 
     response = jsonify({
-        'estimated_price': util.get_predict_rent_price(distritos, barrios, superficie, banyos, habitaciones)
+        'estimated_price': util.get_predict_rent_price(distritos, barrios, superficie, habitaciones, banyos)
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
 

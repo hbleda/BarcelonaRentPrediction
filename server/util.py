@@ -13,7 +13,7 @@ __distritos = None
 __data_columns = None
 __model = None
 
-def get_predict_rent_price(distritos, barrios, superficie, banyos, habitaciones):
+def get_predict_rent_price(distritos, barrios, superficie, habitaciones, banyos):
     try:
         loc_index_distrito = __data_columns.index(distritos)
     except:
@@ -26,8 +26,8 @@ def get_predict_rent_price(distritos, barrios, superficie, banyos, habitaciones)
 
     x = np.zeros(len(__data_columns))
     x[0] = superficie
-    x[1] = banyos
-    x[2] = habitaciones
+    x[1] = habitaciones
+    x[2] = banyos
     
     if loc_index_distrito >= 0:
         x[loc_index_distrito] = 1
@@ -47,8 +47,8 @@ def load_saved_artifacts():
 
     with open(FILE_PATH_COLUMNS, "r",encoding='utf-8') as f:
         __data_columns = json.load(f)['data_columns']
-        __barrios = __data_columns[3:48]  # first 3 columns are sqft, bath, bhk
-        __distritos = __data_columns[49:]  # first 3 columns are sqft, bath, bhk
+        __barrios = __data_columns[3:48]  
+        __distritos = __data_columns[49:]  
 
 
     global __model
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     load_saved_artifacts()
     print(get_barrios_names())
     print(get_distritos_names())
-    print(get_predict_rent_price('Horta-Guinardó','la Font d\'en Fargues',17, 1, 0))
-    print(get_predict_rent_price('Sant Andreu','Navas',80, 1, 3))
-    print(get_predict_rent_price('Sant Martí','el Clot',44, 1, 2)) 
+    print(get_predict_rent_price('Horta-Guinardó','la Font d\'en Fargues',70, 2, 1))
+    print(get_predict_rent_price('Sant Andreu','la Sagrera',80, 3, 1))
+    print(get_predict_rent_price('Sant Martí','el Clot',120, 4, 2)) 
    
