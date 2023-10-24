@@ -41,8 +41,8 @@ function onClickedEstimatePrice() {
   var banyos = getBanyosValue();
   var estPrice = document.getElementById("uiEstimatedPrice");
 
-  var url = "http://127.0.0.1:5000/predict_rent_price"; //Use this if you are NOT using nginx
-  //var url = "/api/predict_rent_price"; // Use this if  you are using nginx.
+  //var url = "http://127.0.0.1:5000/predict_rent_price"; //Use this if you are NOT using nginx
+  var url = "/api/predict_rent_price"; // Use this if  you are using nginx.
 
   $.post(url, {
       distritos: distritos.value,
@@ -61,8 +61,8 @@ function onClickedEstimatePrice() {
 
 function onPageLoad() {
   console.log( "document loaded" );
-  var urlDis = "http://127.0.0.1:5000/get_distritos_names"; // Use this if you are NOT using nginx 
-  //var urlDis = "/api/get_distritos_names"; // Use this if  you are using nginx.
+  //var urlDis = "http://127.0.0.1:5000/get_distritos_names"; // Use this if you are NOT using nginx 
+  var urlDis = "/api/get_distritos_names"; // Use this if  you are using nginx.
   $.get(urlDis,function(data, status) {
       console.log("got response for get_distritos_names request");
       if(data) {
@@ -75,8 +75,8 @@ function onPageLoad() {
           }
       }
   });
-  var urlBar = "http://127.0.0.1:5000/get_barrios_names"; // Use this if you are NOT using nginx
-  //var urlBar = "/api/get_barrios_names"; // Use this if  you are using nginx.
+  //var urlBar = "http://127.0.0.1:5000/get_barrios_names"; // Use this if you are NOT using nginx
+  var urlBar = "/api/get_barrios_names"; // Use this if  you are using nginx.
   $.get(urlBar,function(data, status) {
     console.log("got response for get_barrios_names request");
     if(data) {
